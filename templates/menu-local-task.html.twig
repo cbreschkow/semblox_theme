@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override for a local task link.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the wrapper element (li).
+ * - is_active: Whether the task item is an active tab.
+ * - link: A rendered link element.
+ *
+ * @see template_preprocess_menu_local_task()
+ */
+#}
+{%
+  set link_classes = [
+    'nav-link',
+    is_active ? 'active',
+  ]
+%}
+{# Build link via element-render to keep Drupal's URL/text intact, but inject CSS class. #}
+{%
+  set link = link|merge({
+    '#options': link['#options']|default({})|merge({
+      'attributes': link['#options'].attributes|default({})|merge({
+        'class': link_classes,
+      }),
+    }),
+  })
+%}
+
+<li{{ attributes.addClass('nav-item') }}>{{ link }}</li>

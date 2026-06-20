@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Theme override for the branding block (logo + site name + slogan).
+ *
+ * Bootstrap-konforme horizontale Anordnung mit Navbar-Brand-Pattern.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{% set attributes = attributes.addClass('site-branding', 'd-flex', 'align-items-center') %}
+<div{{ attributes }}>
+  {% if site_logo %}
+    <a href="{{ path('<front>') }}" class="site-branding__logo navbar-brand" rel="home">
+      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+    </a>
+  {% endif %}
+  {% if site_name %}
+    <a href="{{ path('<front>') }}" class="site-branding__name navbar-brand ms-2" rel="home">
+      {{ site_name }}
+    </a>
+  {% endif %}
+  {% if site_slogan %}
+    <div class="site-branding__slogan ms-3 text-muted">
+      {{ site_slogan }}
+    </div>
+  {% endif %}
+</div>

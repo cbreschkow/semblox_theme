@@ -1,0 +1,41 @@
+global:
+  version: 1.x
+  css:
+    theme:
+      dist/css/global.css: {}
+  js:
+    dist/js/global.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - semblox_theme/tokens
+
+bootstrap:
+  version: 5.3.x
+  css:
+    theme:
+      dist/css/bootstrap.css: { minified: true }
+  js:
+    dist/js/bootstrap.bundle.js: { minified: true }
+  dependencies:
+    - core/drupal
+
+tokens:
+  version: 1.0
+  css:
+    base:
+      css/semblox-tokens.css: { weight: -100 }
+  # Single source of truth für alle Design-Tokens (--sx-*).
+  # Wird VOR global.css geladen, damit Komponenten die Tokens nutzen können.
+
+brand_bridge:
+  version: 1.0
+  css:
+    theme:
+      css/semblox-brand.css: { weight: 100 }
+  dependencies:
+    - semblox_theme/global
+  # Bridge zwischen den NEUEN --sx-* Tokens und den ALTEN --semblox-*
+  # Variablen aus dist/css/global.css. Muss NACH global.css geladen werden,
+  # daher als separate Library mit `global` als Dependency. Plus die
+  # @font-face-Definitionen für Plus Jakarta Sans.

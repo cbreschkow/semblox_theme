@@ -1,0 +1,6 @@
+// Globaler Reset. Bootstrap macht das meiste; hier Custom-Ergänzungen.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

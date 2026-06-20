@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234 60" role="img" aria-label="semblox">
+  <title>semblox</title>
+  <!-- Slate-Modul hinten -->
+  <rect x="22" y="4" width="32" height="32" rx="6" fill="#475569"/>
+  <!-- Rose-Modul vorne -->
+  <rect x="12" y="14" width="32" height="32" rx="6" fill="#BE123C"/>
+  <!-- Wortmarke -->
+  <text x="68" y="42" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="32" font-weight="700" letter-spacing="-1.2">
+    <tspan fill="#1E293B">sembl</tspan><tspan fill="#BE123C">o</tspan><tspan fill="#1E293B">x</tspan>
+  </text>
+</svg>

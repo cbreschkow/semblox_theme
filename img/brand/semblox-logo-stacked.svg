@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 130" role="img" aria-label="semblox – Seminarmanagement">
+  <title>semblox – Seminarmanagement</title>
+  <!-- Mark mittig oben -->
+  <g transform="translate(66, 8)">
+    <rect x="14" y="6" width="22" height="22" rx="4" fill="#475569"/>
+    <rect x="8" y="14" width="22" height="22" rx="4" fill="#BE123C"/>
+  </g>
+  <!-- Wortmarke darunter, zentriert -->
+  <text x="90" y="90" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="28" font-weight="700" letter-spacing="-1">
+    <tspan fill="#1E293B">sembl</tspan><tspan fill="#BE123C">o</tspan><tspan fill="#1E293B">x</tspan>
+  </text>
+  <!-- Tagline -->
+  <text x="90" y="112" text-anchor="middle" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="10" font-weight="500" letter-spacing="0.5" fill="#64748B">SEMINARMANAGEMENT</text>
+</svg>

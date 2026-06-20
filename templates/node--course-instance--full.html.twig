@@ -1,0 +1,126 @@
+{#
+/**
+ * @file
+ * Theme override for the full view of a course_instance node.
+ *
+ * Layout:
+ * - Header: Titel + Eckdaten (Datum, Ort, Trainer, Preis)
+ * - Bild (vererbt vom Referenzkurs falls leer)
+ * - Beschreibung
+ * - Optionale Sektionen: Zielgruppe, Voraussetzungen, Skills
+ *
+ * Available variables (zusätzlich zu Standard):
+ * - inherited_image: Bild-Render-Array (Instanz oder Referenzkurs)
+ * - inherited_skills: Skills-Render-Array
+ * - inherited_target_group: Zielgruppe
+ * - inherited_prerequisites: Voraussetzungen
+ * - inherited_price: Preis
+ *
+ * @see semblox_theme_preprocess_node()
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-course-instance',
+    'node--view-mode-full',
+    'course-instance-full',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+
+  {# Header-Bereich mit Eckdaten #}
+  <header class="course-instance__header mb-4">
+    {{ title_prefix }}
+    {# Title kommt vom page_title_block-Block, hier nicht doppelt rendern. #}
+    {{ title_suffix }}
+
+    <ul class="course-instance__meta list-unstyled d-flex flex-wrap gap-3 mb-0">
+      {% if content.field_course_date %}
+        <li class="course-instance__meta-item">
+          <span class="course-instance__meta-icon">📅</span>
+          {{ content.field_course_date }}
+        </li>
+      {% endif %}
+
+      {% if content.field_location %}
+        <li class="course-instance__meta-item">
+          <span class="course-instance__meta-icon">📍</span>
+          {{ content.field_location }}
+        </li>
+      {% endif %}
+
+      {% if content.field_primary_teacher %}
+        <li class="course-instance__meta-item">
+          <span class="course-instance__meta-icon">👤</span>
+          {{ content.field_primary_teacher }}
+        </li>
+      {% endif %}
+
+      {% if inherited_price %}
+        <li class="course-instance__meta-item course-instance__meta-item--price">
+          <span class="course-instance__meta-icon">💶</span>
+          {{ inherited_price }}
+        </li>
+      {% endif %}
+    </ul>
+  </header>
+
+  {# Bild #}
+  {% if inherited_image %}
+    <div class="course-instance__image mb-4">
+      {{ inherited_image }}
+    </div>
+  {% endif %}
+
+  {# Beschreibung #}
+  {% if content.field_course_instance_descriptio %}
+    <section class="course-instance__description mb-4">
+      <h2 class="course-instance__section-heading">{{ 'Beschreibung'|t }}</h2>
+      {{ content.field_course_instance_descriptio }}
+    </section>
+  {% endif %}
+
+  {# Zielgruppe, Voraussetzungen, Skills — als Card-Grid #}
+  {% if inherited_target_group or inherited_prerequisites or inherited_skills %}
+    <section class="course-instance__details mb-4">
+      <div class="row g-3">
+
+        {% if inherited_target_group %}
+          <div class="col-md-6 col-lg-4">
+            <div class="course-instance__card">
+              <h3 class="course-instance__card-heading">{{ 'Zielgruppe'|t }}</h3>
+              {{ inherited_target_group }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if inherited_prerequisites %}
+          <div class="col-md-6 col-lg-4">
+            <div class="course-instance__card">
+              <h3 class="course-instance__card-heading">{{ 'Voraussetzungen'|t }}</h3>
+              {{ inherited_prerequisites }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if inherited_skills %}
+          <div class="col-md-6 col-lg-4">
+            <div class="course-instance__card">
+              <h3 class="course-instance__card-heading">{{ 'Erforderliche Kenntnisse'|t }}</h3>
+              {{ inherited_skills }}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    </section>
+  {% endif %}
+
+  {# Restliche Felder, die wir noch nicht explizit behandelt haben.
+     Drupal hat alle gerenderten Felder unter content.field_X — wir
+     drucken hier nichts mehr aus, weil wir alles oben strukturiert haben.
+     Falls du weitere Felder zeigen willst, einfach hier mit
+     {{ content.field_XXX }} ausgeben. #}
+
+</article>

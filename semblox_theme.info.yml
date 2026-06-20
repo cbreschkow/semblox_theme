@@ -1,0 +1,39 @@
+name: 'Semblox Theme'
+type: theme
+description: 'Bootstrap-5-basiertes Standard-Theme für Semblox-Projekte. Dient als Grundlage für kundenspezifische Child-Themes.'
+package: 'Semblox'
+core_version_requirement: ^10 || ^11
+
+# Kein Base-Theme. Drupal 10/11 verlangt diesen Key explizit.
+# Siehe https://www.drupal.org/node/3066038
+base theme: false
+
+libraries:
+  - semblox_theme/global
+  - semblox_theme/bootstrap
+  - semblox_theme/brand_bridge
+
+# Library-Overrides: Drupal-Core-Libraries nicht laden (wir nutzen Bootstrap).
+libraries-override:
+  # Beispiel: System-Standard-CSS abschalten, weil Bootstrap das selbst regelt.
+  # Bei Bedarf hier weiter ergänzen.
+
+regions:
+  header: 'Header'
+  primary_menu: 'Hauptmenü'
+  breadcrumb: 'Brotkrumen'
+  highlighted: 'Hinweise'
+  hero: 'Hero (Marketing-Banner)'
+  content: 'Inhalt'
+  sidebar_left: 'Sidebar links'
+  sidebar_right: 'Sidebar rechts'
+  footer_top: 'Footer oben'
+  footer_bottom: 'Footer unten'
+
+regions_hidden:
+  - sidebar_left
+
+# Mindestens eine Region muss als 'content' markiert sein.
+# Weitere optionale Konfig:
+ckeditor5-stylesheets:
+  - dist/css/global.css

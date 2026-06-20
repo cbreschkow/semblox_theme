@@ -1,0 +1,11 @@
+// Page-Wrapper und Bootstrap-Grid für Sidebar-Layouts
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-main {
+  flex: 1;
+  padding: 2rem 0;
+}

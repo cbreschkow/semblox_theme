@@ -1,0 +1,17 @@
+{
+    "name": "semblox/semblox_theme",
+    "description": "Semblox: Basis-Theme.",
+    "type": "drupal-custom-theme",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.semblox.de",
+    "authors": [
+        { "name": "Claudia Breschkow", "homepage": "https://www.semblox.de", "role": "Maintainer" }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "drupal/core": "^10.3 || ^11"
+    }
+    "extra": { 
+	 "branch-alias": { "dev-main": "1.0.x-dev" }
+    }
+}

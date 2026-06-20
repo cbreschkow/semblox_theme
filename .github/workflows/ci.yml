@@ -1,0 +1,32 @@
+name: CI
+
+# Für Themes MIT Build (z.B. semblox_theme): baut im Theme-ROOT (nicht in js/).
+# Child-Themes ohne package.json brauchen diesen Workflow NICHT.
+
+on:
+  push:
+    branches: [main, develop, '*-dev']
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  theme-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Abhängigkeiten installieren
+        run: npm ci
+      - name: Theme bauen
+        run: npm run build
+      - name: Build-Ergebnis prüfen
+        run: |
+          if [ -z "$(ls -A dist 2>/dev/null)" ]; then
+            echo "::error::dist/ ist leer — Build hat nichts erzeugt."
+            exit 1
+          fi
+          ls -R dist

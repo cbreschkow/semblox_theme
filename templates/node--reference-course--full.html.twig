@@ -1,0 +1,126 @@
+{#
+/**
+ * @file
+ * Theme override for the full view of a reference_course node.
+ *
+ * Layout:
+ * - Bild oben
+ * - Eckdaten (Kategorie, Dauer, Min/Max-Teilnehmer, Preis)
+ * - Beschreibung
+ * - Sektionen: Zielgruppe, Voraussetzungen, Skills
+ * - Termin-Liste kommt aus dem Sidebar-Block (reference_course_instances_block)
+ *
+ * @see semblox_theme_preprocess_node()
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-reference-course',
+    'node--view-mode-full',
+    'reference-course-full',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  {# Bild #}
+  {% if content.field_course_image %}
+    <div class="reference-course__image mb-4">
+      {{ content.field_course_image }}
+    </div>
+  {% endif %}
+
+  {# Eckdaten als horizontale Meta-Liste #}
+  <ul class="reference-course__meta list-unstyled d-flex flex-wrap gap-3 mb-4">
+
+    {% if content.field_course_category %}
+      <li class="reference-course__meta-item">
+        <span class="reference-course__meta-icon">🏷️</span>
+        {{ content.field_course_category }}
+      </li>
+    {% endif %}
+
+    {% if content.field_duration %}
+      <li class="reference-course__meta-item">
+        <span class="reference-course__meta-icon">⏱️</span>
+        {{ content.field_duration }}
+      </li>
+    {% endif %}
+
+    {% if content.field_min_participants or content.field_max_participants %}
+      <li class="reference-course__meta-item">
+        <span class="reference-course__meta-icon">👥</span>
+        {% if content.field_min_participants %}
+          {{ content.field_min_participants }}
+        {% endif %}
+        {% if content.field_max_participants %}
+          – {{ content.field_max_participants }} {{ 'Teilnehmer'|t }}
+        {% endif %}
+      </li>
+    {% endif %}
+
+    {% if content.field_price %}
+      <li class="reference-course__meta-item reference-course__meta-item--price">
+        <span class="reference-course__meta-icon">💶</span>
+        {{ content.field_price }}
+      </li>
+    {% endif %}
+
+  </ul>
+
+  {# Beschreibung #}
+  {% if content.field_ref_course_description %}
+    <section class="reference-course__description mb-4">
+      <h2 class="reference-course__section-heading">{{ 'Beschreibung'|t }}</h2>
+      {{ content.field_ref_course_description }}
+    </section>
+  {% endif %}
+
+  {# Zielgruppe, Voraussetzungen, Skills #}
+  {% if content.field_target_group|render or content.field_prerequisites|render or content.field_required_skills|render %}
+    <section class="reference-course__details mb-4">
+      <div class="row g-3">
+
+        {% if content.field_target_group|render %}
+          <div class="col-md-6 col-lg-4">
+            <div class="reference-course__card">
+              <h3 class="reference-course__card-heading">{{ 'Zielgruppe'|t }}</h3>
+              {{ content.field_target_group }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if content.field_prerequisites|render %}
+          <div class="col-md-6 col-lg-4">
+            <div class="reference-course__card">
+              <h3 class="reference-course__card-heading">{{ 'Voraussetzungen'|t }}</h3>
+              {{ content.field_prerequisites }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if content.field_required_skills|render %}
+          <div class="col-md-6 col-lg-4">
+            <div class="reference-course__card">
+              <h3 class="reference-course__card-heading">{{ 'Erforderliche Kenntnisse'|t }}</h3>
+              {{ content.field_required_skills }}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    </section>
+  {% endif %}
+
+  {# Kursdokumente — falls vorhanden, als Download-Liste #}
+  {% if content.field_course_documents|render %}
+    <section class="reference-course__documents mb-4">
+      <h2 class="reference-course__section-heading">{{ 'Dokumente'|t }}</h2>
+      {{ content.field_course_documents }}
+    </section>
+  {% endif %}
+
+</article>

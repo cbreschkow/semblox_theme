@@ -1,0 +1,175 @@
+// =============================================================================
+// Page-Specific Styles: Course Instance + Reference Course
+// =============================================================================
+//
+// Diese Styles greifen auf die strukturierten Templates für die Detailseiten
+// von Kursinstanzen und Referenzkursen.
+
+// Gemeinsame Mixins
+@mixin meta-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+  color: var(--semblox-body-color);
+}
+
+@mixin meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  background: #f5f7fa;
+  border-radius: 999px;
+  border: 1px solid var(--semblox-border);
+}
+
+@mixin meta-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@mixin info-card {
+  height: 100%;
+  padding: 1rem 1.25rem;
+  background: #f9fafb;
+  border: 1px solid var(--semblox-border);
+  border-radius: var(--semblox-border-radius);
+}
+
+@mixin card-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--semblox-primary);
+}
+
+@mixin section-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--semblox-primary);
+}
+
+// =============================================================================
+// Course Instance — Buchungsseite
+// =============================================================================
+
+.course-instance-full {
+
+  .course-instance__header {
+    padding: 1rem 1.25rem;
+    background: rgba(var(--semblox-primary-rgb), 0.05);
+    border-left: 4px solid var(--semblox-primary);
+    border-radius: var(--semblox-border-radius);
+  }
+
+  .course-instance__meta {
+    @include meta-list;
+  }
+
+  .course-instance__meta-item {
+    @include meta-item;
+
+    &--price {
+      background: rgba(var(--semblox-primary-rgb), 0.1);
+      border-color: rgba(var(--semblox-primary-rgb), 0.3);
+      font-weight: 600;
+    }
+  }
+
+  .course-instance__meta-icon {
+    @include meta-icon;
+  }
+
+  .course-instance__image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--semblox-border-radius);
+  }
+
+  .course-instance__section-heading {
+    @include section-heading;
+  }
+
+  .course-instance__description {
+    line-height: 1.6;
+    font-size: 1.05rem;
+  }
+
+  .course-instance__card {
+    @include info-card;
+  }
+
+  .course-instance__card-heading {
+    @include card-heading;
+  }
+}
+
+// =============================================================================
+// Reference Course — Detailseite
+// =============================================================================
+
+.reference-course-full {
+
+  .reference-course__image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--semblox-border-radius);
+  }
+
+  .reference-course__meta {
+    @include meta-list;
+  }
+
+  .reference-course__meta-item {
+    @include meta-item;
+
+    &--price {
+      background: rgba(var(--semblox-primary-rgb), 0.1);
+      border-color: rgba(var(--semblox-primary-rgb), 0.3);
+      font-weight: 600;
+    }
+  }
+
+  .reference-course__meta-icon {
+    @include meta-icon;
+  }
+
+  .reference-course__section-heading {
+    @include section-heading;
+  }
+
+  .reference-course__description {
+    line-height: 1.6;
+    font-size: 1.05rem;
+  }
+
+  .reference-course__card {
+    @include info-card;
+  }
+
+  .reference-course__card-heading {
+    @include card-heading;
+  }
+
+  .reference-course__documents {
+    .file {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      margin: 0.25rem 0;
+      background: #f5f7fa;
+      border: 1px solid var(--semblox-border);
+      border-radius: var(--semblox-border-radius);
+      text-decoration: none;
+
+      &:hover {
+        background: #fff;
+        border-color: var(--semblox-primary);
+      }
+    }
+  }
+}

@@ -1,0 +1,224 @@
+/* ==========================================================================
+   semblox · Design Tokens
+   ==========================================================================
+   Single source of truth für alle Design-Variablen.
+   Alle Komponenten und Themes leiten sich von diesen Tokens ab.
+   ========================================================================== */
+
+/* HINWEIS: Die @font-face-Definitionen für Plus Jakarta Sans wurden in das
+   Theme (semblox_theme/fonts/) verschoben, da CSS-Variablen Module-weit
+   genutzt werden, aber Font-Files Theme-spezifisch sind. */
+
+
+/* ==========================================================================
+   :root – Light Mode (Default)
+   ========================================================================== */
+
+:root {
+  /* ----- Farben: Markenfarben ----- */
+  --sx-color-slate: #475569;            /* Slate-600 · Hauptmarke (Mark hinten) */
+  --sx-color-slate-dark: #1E293B;       /* Slate-800 · Haupttext */
+  --sx-color-slate-darker: #0F172A;     /* Slate-900 · maximaler Kontrast */
+  --sx-color-rose: #BE123C;             /* Rose-700 · Akzent (Mark vorne, "o", Buttons) */
+  --sx-color-rose-hover: #9F1239;       /* Rose-800 · Hover-State */
+  --sx-color-rose-tint: #FFF1F2;        /* Rose-50  · Subtle Background-Tint */
+
+  /* ----- Farben: Semantisch ----- */
+  --sx-color-bg: #FFFFFF;
+  --sx-color-bg-subtle: #F8FAFC;        /* Slate-50  · Sektionshintergrund */
+  --sx-color-bg-muted: #F1F5F9;         /* Slate-100 · Cards, Inputs */
+  --sx-color-border: #E2E8F0;           /* Slate-200 · Default Border */
+  --sx-color-border-strong: #CBD5E1;    /* Slate-300 · stärkerer Border */
+  --sx-color-text: #1E293B;             /* Haupttext */
+  --sx-color-text-muted: #64748B;       /* Slate-500 · Sekundärtext */
+  --sx-color-text-subtle: #94A3B8;      /* Slate-400 · Tertiärtext, Placeholder */
+
+  /* ----- Farben: Funktional (Status) ----- */
+  --sx-color-success: #059669;          /* Emerald-600 */
+  --sx-color-success-bg: #ECFDF5;       /* Emerald-50  */
+  --sx-color-warning: #D97706;          /* Amber-600   */
+  --sx-color-warning-bg: #FFFBEB;       /* Amber-50    */
+  --sx-color-danger: #BE123C;           /* Rose-700 (= Akzent, da semantische Bedeutung passt) */
+  --sx-color-danger-bg: #FFF1F2;        /* Rose-50     */
+  --sx-color-info: #2563EB;             /* Blue-600    */
+  --sx-color-info-bg: #EFF6FF;          /* Blue-50     */
+
+  /* ----- Typografie ----- */
+  --sx-font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --sx-font-family-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  /* Type-Scale (modulares Verhältnis 1.25 · "Major Third") */
+  --sx-font-size-xs:    0.75rem;        /* 12px · Captions, Labels */
+  --sx-font-size-sm:    0.875rem;       /* 14px · Sekundär, Hilfe */
+  --sx-font-size-base:  1rem;           /* 16px · Body */
+  --sx-font-size-lg:    1.125rem;       /* 18px · Lead */
+  --sx-font-size-xl:    1.25rem;        /* 20px · H4 */
+  --sx-font-size-2xl:   1.5rem;         /* 24px · H3 */
+  --sx-font-size-3xl:   1.875rem;       /* 30px · H2 */
+  --sx-font-size-4xl:   2.25rem;        /* 36px · H1 */
+  --sx-font-size-5xl:   3rem;           /* 48px · Display */
+
+  /* Font-Weights (Plus Jakarta Sans verfügt über 200–800) */
+  --sx-font-weight-regular: 400;
+  --sx-font-weight-medium:  500;
+  --sx-font-weight-semibold: 600;
+  --sx-font-weight-bold:    700;
+
+  /* Line-Heights */
+  --sx-leading-tight:   1.2;            /* Headlines */
+  --sx-leading-snug:    1.4;            /* Subheadlines */
+  --sx-leading-normal:  1.6;            /* Body */
+  --sx-leading-relaxed: 1.75;           /* Long-form Reading */
+
+  /* Letter-Spacing (Tracking) */
+  --sx-tracking-tight:  -0.04em;        /* Display Headlines */
+  --sx-tracking-normal: -0.01em;        /* Body */
+  --sx-tracking-wide:   0.05em;         /* Caps, Labels */
+
+  /* ----- Spacing-Skala (4px Grid) ----- */
+  --sx-space-0:  0;
+  --sx-space-1:  0.25rem;               /* 4px  */
+  --sx-space-2:  0.5rem;                /* 8px  */
+  --sx-space-3:  0.75rem;               /* 12px */
+  --sx-space-4:  1rem;                  /* 16px */
+  --sx-space-5:  1.25rem;               /* 20px */
+  --sx-space-6:  1.5rem;                /* 24px */
+  --sx-space-8:  2rem;                  /* 32px */
+  --sx-space-10: 2.5rem;                /* 40px */
+  --sx-space-12: 3rem;                  /* 48px */
+  --sx-space-16: 4rem;                  /* 64px */
+  --sx-space-20: 5rem;                  /* 80px */
+  --sx-space-24: 6rem;                  /* 96px */
+
+  /* ----- Border-Radius ----- */
+  --sx-radius-none: 0;
+  --sx-radius-sm:   0.25rem;            /* 4px  · Inputs, Tags */
+  --sx-radius-md:   0.5rem;             /* 8px  · Buttons, Cards */
+  --sx-radius-lg:   0.75rem;            /* 12px · Container, Modals */
+  --sx-radius-xl:   1rem;               /* 16px · große Cards */
+  --sx-radius-full: 9999px;             /* Pills, Avatare */
+
+  /* ----- Schatten (Elevation) ----- */
+  --sx-shadow-xs:  0 1px 2px 0 rgb(15 23 42 / 0.04);
+  --sx-shadow-sm:  0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px 0 rgb(15 23 42 / 0.04);
+  --sx-shadow-md:  0 4px 6px -1px rgb(15 23 42 / 0.06), 0 2px 4px -1px rgb(15 23 42 / 0.04);
+  --sx-shadow-lg:  0 10px 15px -3px rgb(15 23 42 / 0.08), 0 4px 6px -2px rgb(15 23 42 / 0.04);
+  --sx-shadow-xl:  0 20px 25px -5px rgb(15 23 42 / 0.10), 0 10px 10px -5px rgb(15 23 42 / 0.04);
+  --sx-shadow-focus: 0 0 0 3px rgb(190 18 60 / 0.30);   /* Rose-700 @ 30% für Focus-Ring */
+
+  /* ----- Übergänge ----- */
+  --sx-transition-fast:   120ms ease;
+  --sx-transition-base:   180ms ease;
+  --sx-transition-slow:   320ms ease;
+
+  /* ----- Z-Index ----- */
+  --sx-z-base:      0;
+  --sx-z-dropdown:  100;
+  --sx-z-sticky:    200;
+  --sx-z-overlay:   300;
+  --sx-z-modal:     400;
+  --sx-z-toast:     500;
+}
+
+
+/* ==========================================================================
+   Dark Mode
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* Markenfarben werden im Dark Mode aufgehellt */
+  --sx-color-slate: #94A3B8;            /* Slate-400 statt 600 */
+  --sx-color-slate-dark: #F8FAFC;       /* invertiert */
+  --sx-color-slate-darker: #FFFFFF;
+  --sx-color-rose: #F43F5E;             /* Rose-500 statt 700 */
+  --sx-color-rose-hover: #FB7185;       /* Rose-400 */
+  --sx-color-rose-tint: rgb(244 63 94 / 0.12);
+
+  /* Semantische Farben für dunklen Hintergrund */
+  --sx-color-bg: #0F172A;               /* Slate-900 */
+  --sx-color-bg-subtle: #1E293B;        /* Slate-800 */
+  --sx-color-bg-muted: #334155;         /* Slate-700 */
+  --sx-color-border: #334155;           /* Slate-700 */
+  --sx-color-border-strong: #475569;    /* Slate-600 */
+  --sx-color-text: #F8FAFC;             /* Slate-50 */
+  --sx-color-text-muted: #CBD5E1;       /* Slate-300 */
+  --sx-color-text-subtle: #94A3B8;      /* Slate-400 */
+
+  /* Status-Farben für Dark Mode (heller) */
+  --sx-color-success: #34D399;
+  --sx-color-success-bg: rgb(52 211 153 / 0.15);
+  --sx-color-warning: #FBBF24;
+  --sx-color-warning-bg: rgb(251 191 36 / 0.15);
+  --sx-color-danger: #F43F5E;
+  --sx-color-danger-bg: rgb(244 63 94 / 0.15);
+  --sx-color-info: #60A5FA;
+  --sx-color-info-bg: rgb(96 165 250 / 0.15);
+
+  /* Schatten weniger sichtbar im Dark Mode */
+  --sx-shadow-xs:  0 1px 2px 0 rgb(0 0 0 / 0.20);
+  --sx-shadow-sm:  0 1px 3px 0 rgb(0 0 0 / 0.30), 0 1px 2px 0 rgb(0 0 0 / 0.20);
+  --sx-shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.30), 0 2px 4px -1px rgb(0 0 0 / 0.20);
+  --sx-shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.40), 0 4px 6px -2px rgb(0 0 0 / 0.20);
+  --sx-shadow-xl:  0 20px 25px -5px rgb(0 0 0 / 0.50), 0 10px 10px -5px rgb(0 0 0 / 0.20);
+  --sx-shadow-focus: 0 0 0 3px rgb(244 63 94 / 0.40);
+}
+
+
+/* ==========================================================================
+   Base · Reset + Body
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; tab-size: 4; }
+
+body {
+  margin: 0;
+  font-family: var(--sx-font-family);
+  font-size: var(--sx-font-size-base);
+  font-weight: var(--sx-font-weight-regular);
+  line-height: var(--sx-leading-normal);
+  letter-spacing: var(--sx-tracking-normal);
+  color: var(--sx-color-text);
+  background: var(--sx-color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Optional Utility-Klassen für schnelles Prototyping
+   ========================================================================== */
+
+.sx-text-rose   { color: var(--sx-color-rose); }
+.sx-text-slate  { color: var(--sx-color-slate); }
+.sx-text-muted  { color: var(--sx-color-text-muted); }
+
+.sx-bg-rose     { background: var(--sx-color-rose); }
+.sx-bg-slate    { background: var(--sx-color-slate); }
+.sx-bg-subtle   { background: var(--sx-color-bg-subtle); }
+
+.sx-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sx-space-3) var(--sx-space-5);
+  border-radius: var(--sx-radius-md);
+  font-family: inherit;
+  font-size: var(--sx-font-size-sm);
+  font-weight: var(--sx-font-weight-semibold);
+  border: none;
+  cursor: pointer;
+  transition: background var(--sx-transition-base), transform var(--sx-transition-fast);
+}
+
+.sx-button--primary {
+  background: var(--sx-color-rose);
+  color: white;
+}
+.sx-button--primary:hover {
+  background: var(--sx-color-rose-hover);
+}
+.sx-button--primary:focus-visible {
+  outline: none;
+  box-shadow: var(--sx-shadow-focus);
+}

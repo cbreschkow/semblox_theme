@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Adds Bootstrap classes:
+ * - .form-control for text/email/password/etc.
+ * - .form-check-input for checkbox/radio
+ * - .btn .btn-primary for submit/button
+ *
+ * @see template_preprocess_input()
+ */
+#}
+{%-
+  set classes = [
+    'form-element',
+    'form-element--type-' ~ element['#type']|clean_class,
+    'form-element--api-' ~ element['#name']|clean_class,
+  ]
+-%}
+
+{# Bootstrap-Klassen je nach Typ. #}
+{%- set type = element['#type'] -%}
+
+{%- if type in ['submit', 'button'] -%}
+  {%- set bs_classes = ['btn', 'btn-primary'] -%}
+{%- elseif type in ['checkbox', 'radio'] -%}
+  {%- set bs_classes = ['form-check-input'] -%}
+{%- elseif type == 'file' -%}
+  {%- set bs_classes = ['form-control'] -%}
+{%- else -%}
+  {%- set bs_classes = ['form-control'] -%}
+{%- endif -%}
+
+{%- if errors -%}
+  {%- set bs_classes = bs_classes|merge(['is-invalid']) -%}
+{%- endif -%}
+
+<input{{ attributes.addClass(bs_classes) }} />
+{{ children }}

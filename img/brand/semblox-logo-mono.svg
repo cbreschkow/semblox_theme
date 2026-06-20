@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234 60" role="img" aria-label="semblox">
+  <title>semblox</title>
+  <!-- Slate-Modul hinten (mittel-grau) -->
+  <rect x="22" y="4" width="32" height="32" rx="6" fill="#475569"/>
+  <!-- Vorne in Slate-900 statt Akzent -->
+  <rect x="12" y="14" width="32" height="32" rx="6" fill="#0F172A"/>
+  <!-- Wortmarke einheitlich Slate-900 -->
+  <text x="68" y="42" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="32" font-weight="700" letter-spacing="-1.2" fill="#0F172A">semblox</text>
+</svg>

@@ -1,0 +1,31 @@
+# =============================================================================
+# Semblox-Modul – .gitignore (gilt im jeweiligen Modul-Repo, NICHT im Projekt-Repo)
+# =============================================================================
+
+# --- Abhängigkeiten – nie committen -----------------------------------------
+# Ohne führenden Slash: matcht auf JEDER Ebene, also auch js/node_modules/
+node_modules/
+/vendor/
+
+# --- Build-Caches (NICHT js/dist/!) -----------------------------------------
+.vite/
+*.log
+npm-debug.log*
+
+# --- Lockfiles --------------------------------------------------------------
+# Bibliotheks-/Modul-Repos committen keine composer.lock.
+# package-lock.json HINGEGEN committen (reproduzierbares `npm ci`) -> nicht ignorieren.
+composer.lock
+
+# --- Editor / OS ------------------------------------------------------------
+/.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+
+# =============================================================================
+# WICHTIG: js/dist/ bleibt VERSIONIERT.
+# Die kompilierten Assets werden von VCS/Composer-Konsumenten (Site, CI, Prod)
+# benötigt, da dort kein npm/Vite-Build läuft. Niemals js/dist/ ignorieren.
+# =============================================================================

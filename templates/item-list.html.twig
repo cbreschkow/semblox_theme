@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override for an item list.
+ *
+ * Available variables:
+ * - items: A list of items.
+ * - title: A title to be prepended to the list.
+ * - list_type: The tag for list element ("ul" or "ol").
+ * - wrapper_attributes: HTML attributes for the wrapper.
+ * - attributes: HTML attributes to be applied to the list.
+ * - empty: A message to display when there are no items.
+ * - context: Context for the list.
+ *
+ * @see template_preprocess_item_list()
+ */
+#}
+{% if items or empty -%}
+  {%- if title is not empty -%}
+    <h3>{{ title }}</h3>
+  {%- endif -%}
+
+  {%- if items -%}
+    <{{ list_type }}{{ attributes }}>
+      {%- for item in items -%}
+        <li{{ item.attributes }}>{{ item.value }}</li>
+      {%- endfor -%}
+    </{{ list_type }}>
+  {%- else -%}
+    {{ empty }}
+  {%- endif %}
+{%- endif %}

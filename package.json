@@ -1,0 +1,18 @@
+{
+  "name": "semblox_theme",
+  "version": "1.0.0",
+  "description": "Bootstrap-5-basiertes Drupal-Theme",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "vite build --watch"
+  },
+  "devDependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "sass": "^1.77.8",
+    "vite": "^5.4.2"
+  }
+}

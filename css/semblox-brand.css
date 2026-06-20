@@ -1,0 +1,241 @@
+/* ==========================================================================
+   semblox · Theme Brand
+   ==========================================================================
+   Bindet Plus Jakarta Sans über die im Theme bereits liegenden Font-Files
+   ein und überschreibt das alte eLeDia-Branding mit den neuen
+   Slate + Rose Tokens.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-400-normal.woff2") format("woff2"),
+       url("../fonts/plus-jakarta-sans-latin-400-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"),
+       url("../fonts/plus-jakarta-sans-latin-500-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"),
+       url("../fonts/plus-jakarta-sans-latin-600-normal.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"),
+       url("../fonts/plus-jakarta-sans-latin-700-normal.woff") format("woff");
+}
+
+/* Bridge: alte --semblox-* Variablen → neue --sx-* Tokens
+   So funktionieren bestehende Komponenten weiter, während neue
+   die neuen Tokens nutzen können. !important wichtig, falls
+   dist/css/global.css trotz Library-Reihenfolge gewinnt. */
+:root {
+  --semblox-primary: var(--sx-color-rose) !important;
+  --semblox-primary-rgb: 190, 18, 60 !important;
+  --semblox-success: var(--sx-color-success) !important;
+  --semblox-success-rgb: 5, 150, 105 !important;
+  --semblox-warning: var(--sx-color-warning) !important;
+  --semblox-warning-rgb: 217, 119, 6 !important;
+  --semblox-danger: var(--sx-color-danger) !important;
+  --semblox-danger-rgb: 190, 18, 60 !important;
+  --semblox-info: var(--sx-color-info) !important;
+  --semblox-info-rgb: 37, 99, 235 !important;
+  --semblox-body-bg: var(--sx-color-bg) !important;
+  --semblox-body-color: var(--sx-color-text) !important;
+  --semblox-muted: var(--sx-color-text-muted) !important;
+  --semblox-border: var(--sx-color-border) !important;
+  --semblox-font-family-sans: var(--sx-font-family) !important;
+}
+
+/* Body-Font auf Plus Jakarta Sans setzen */
+body {
+  font-family: var(--sx-font-family);
+}
+
+/* ==========================================================================
+   Site Header: Logo sichtbar machen
+   ========================================================================== */
+
+/* Logo-Image: garantiert sichtbar mit Mindesthöhe */
+.site-header .site-branding__logo {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 4px 0;
+}
+
+.site-header .site-branding__logo img,
+.site-header .site-branding__logo svg {
+  display: block;
+  max-height: 56px;
+  width: auto;
+  min-width: 120px;
+}
+
+/* Falls nur die Wortmarke (text) gezeigt wird — sichtbar in Brand-Farbe */
+.site-header .site-branding__name {
+  color: var(--sx-color-rose) !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   Primary Menu: Slate statt Rose (Brand-Empfehlung)
+   ========================================================================== */
+
+.site-primary-menu {
+  background: var(--sx-color-slate) !important;
+}
+
+.site-primary-menu .nav-link.active,
+.site-primary-menu .nav-link:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+}
+
+/* ==========================================================================
+   Suchformular: Button RECHTS NEBEN der Leiste (input-group)
+   ========================================================================== */
+
+.site-primary-menu [id*="search-form"] form,
+.site-primary-menu [id*="search_form"] form,
+.site-primary-menu [data-block-plugin-id*="search_form"] form,
+form#search-block-form,
+form[id*="search-block-form"] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  max-width: 320px;
+}
+
+.site-primary-menu [id*="search"] form > div,
+form#search-block-form > div,
+form[id*="search-block-form"] > div {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  flex: 1;
+}
+
+.site-primary-menu [id*="search"] .form-control,
+.site-primary-menu [id*="search"] input[type="text"],
+.site-primary-menu [id*="search"] input[type="search"],
+form#search-block-form input[type="text"],
+form#search-block-form input[type="search"] {
+  flex: 1 1 auto;
+  height: 40px !important;
+  padding: 6px 12px !important;
+  line-height: 1.5 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.site-primary-menu [id*="search"] input[type="submit"],
+.site-primary-menu [id*="search"] button[type="submit"],
+.site-primary-menu [id*="search"] .btn,
+form#search-block-form input[type="submit"],
+form#search-block-form button[type="submit"] {
+  flex: 0 0 auto;
+  height: 40px !important;
+  padding: 6px 16px !important;
+  line-height: 1.5 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  margin: 0 !important;
+  background: var(--sx-color-rose) !important;
+  border: 1px solid var(--sx-color-rose) !important;
+  color: #fff !important;
+  white-space: nowrap;
+  box-sizing: border-box !important;
+}
+
+/* Verstecke leere "Anzeigen"-Label falls vorhanden */
+.site-primary-menu [id*="search"] .form-item:not(:has(input[type="text"])):not(:has(input[type="search"])) > label {
+  display: none;
+}
+
+/* ==========================================================================
+   Bootstrap-Override: alle bs-*-Variablen auf Brand-Tokens umstellen
+   ========================================================================== */
+
+:root {
+  /* Primary = Rose */
+  --bs-primary: var(--sx-color-rose) !important;
+  --bs-primary-rgb: 190, 18, 60 !important;
+  --bs-primary-text-emphasis: rgb(95, 9, 30) !important;
+  --bs-primary-bg-subtle: rgb(252, 219, 226) !important;
+  --bs-primary-border-subtle: rgb(238, 168, 188) !important;
+
+  /* Secondary = Slate */
+  --bs-secondary: var(--sx-color-slate) !important;
+  --bs-secondary-rgb: 71, 85, 105 !important;
+
+  /* Status */
+  --bs-success: var(--sx-color-success) !important;
+  --bs-success-rgb: 5, 150, 105 !important;
+  --bs-warning: var(--sx-color-warning) !important;
+  --bs-warning-rgb: 217, 119, 6 !important;
+  --bs-danger: var(--sx-color-danger) !important;
+  --bs-danger-rgb: 190, 18, 60 !important;
+  --bs-info: var(--sx-color-info) !important;
+  --bs-info-rgb: 37, 99, 235 !important;
+
+  /* Links */
+  --bs-link-color: var(--sx-color-rose) !important;
+  --bs-link-color-rgb: 190, 18, 60 !important;
+  --bs-link-hover-color: rgb(159, 18, 57) !important;
+  --bs-link-hover-color-rgb: 159, 18, 57 !important;
+}
+
+/* Bootstrap Buttons hart auf Rose forcieren */
+.btn-primary {
+  --bs-btn-bg: var(--sx-color-rose) !important;
+  --bs-btn-border-color: var(--sx-color-rose) !important;
+  --bs-btn-hover-bg: rgb(159, 18, 57) !important;
+  --bs-btn-hover-border-color: rgb(149, 17, 53) !important;
+  --bs-btn-active-bg: rgb(149, 17, 53) !important;
+  --bs-btn-active-border-color: rgb(149, 17, 53) !important;
+  --bs-btn-disabled-bg: var(--sx-color-rose) !important;
+  --bs-btn-disabled-border-color: var(--sx-color-rose) !important;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--sx-color-rose) !important;
+  --bs-btn-border-color: var(--sx-color-rose) !important;
+  --bs-btn-hover-bg: var(--sx-color-rose) !important;
+  --bs-btn-hover-border-color: var(--sx-color-rose) !important;
+  --bs-btn-active-bg: var(--sx-color-rose) !important;
+  --bs-btn-active-border-color: var(--sx-color-rose) !important;
+  --bs-btn-disabled-color: var(--sx-color-rose) !important;
+  --bs-btn-disabled-border-color: var(--sx-color-rose) !important;
+}
+
+/* Links */
+a, a:visited {
+  color: var(--sx-color-rose);
+}
+
+a:hover {
+  color: rgb(159, 18, 57);
+}

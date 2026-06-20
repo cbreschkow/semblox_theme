@@ -1,0 +1,107 @@
+// =============================================================================
+// Site-Header
+// =============================================================================
+//
+// Die Region selbst ist via region.html.twig bereits ein Flex-Container.
+// Hier nur Styling der Blöcke und ihrer Anordnung.
+
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--semblox-border);
+
+  // Site-Branding (Logo + Name)
+  .site-branding__logo img {
+    max-height: 40px;
+  }
+
+  .site-branding__name {
+    font-weight: 600;
+    color: var(--semblox-primary);
+    font-size: 1.25rem;
+    text-decoration: none;
+  }
+
+  // Account-Menu ans rechte Ende schieben.
+  // Mehrere Selektor-Varianten für robuste Erkennung.
+  [id*="account-menu"],
+  [id*="account_menu"],
+  [data-block-plugin-id*="system_menu_block:account"] {
+    margin-left: auto;
+  }
+
+  // Account-Menu als horizontale Liste
+  [id*="account-menu"] .nav,
+  [id*="account_menu"] .nav,
+  [data-block-plugin-id*="system_menu_block:account"] .nav {
+    flex-direction: row;
+    gap: 1rem;
+
+    .nav-link {
+      padding: 0.25rem 0;
+      color: var(--semblox-body-color);
+
+      &:hover {
+        color: var(--semblox-primary);
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Primary Menu (Hauptnavigation)
+// =============================================================================
+.site-primary-menu {
+  background: var(--semblox-primary);
+  padding: 0.5rem 0;
+
+  // Hauptnavigation als horizontale Liste
+  .nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+
+    &:hover,
+    &.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // Suchformular ans rechte Ende schieben
+  [id*="search-form"],
+  [id*="search_form"],
+  [data-block-plugin-id*="search_form"] {
+    margin-left: auto;
+  }
+
+  // Suchformular: Inputs etwas kompakter
+  [id*="search-form"] .form-control,
+  [id*="search_form"] .form-control,
+  [data-block-plugin-id*="search_form"] .form-control {
+    max-width: 250px;
+  }
+}
+
+// =============================================================================
+// Breadcrumb
+// =============================================================================
+.site-breadcrumb {
+  padding: 0.75rem 0;
+  background: #f8f9fa;
+  margin-bottom: 1rem;
+
+  .breadcrumb {
+    margin: 0;
+    background: transparent;
+    padding: 0;
+  }
+}
+
+// =============================================================================
+// Highlighted (Status-Nachrichten, Tabs)
+// =============================================================================
+.site-highlighted {
+  margin: 1rem 0;
+}

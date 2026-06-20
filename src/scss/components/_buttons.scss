@@ -1,0 +1,14 @@
+// Eigene Button-Varianten zusätzlich zu Bootstrap
+// (Bootstrap btn-primary etc. funktionieren bereits via Variablen-Override)
+
+.btn-semblox-primary {
+  background-color: var(--semblox-primary);
+  color: #fff;
+  border: 1px solid var(--semblox-primary);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(var(--semblox-primary-rgb), 0.9);
+    color: #fff;
+  }
+}

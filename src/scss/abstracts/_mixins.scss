@@ -1,0 +1,11 @@
+// =============================================================================
+// Mixins
+// =============================================================================
+//
+// Hier sammeln wir wiederverwendbare SCSS-Mixins. Initial leer — wird befüllt
+// wenn konkrete Komponenten gebaut werden.
+
+// Beispiel-Mixin: Container-Padding für Cards
+@mixin card-padding {
+  padding: 1rem 1.25rem;
+}

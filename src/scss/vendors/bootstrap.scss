@@ -1,0 +1,17 @@
+// =============================================================================
+// Bootstrap 5 — Vendor Import
+// =============================================================================
+//
+// Dieser File wird als eigener Build-Eintrag kompiliert (siehe vite.config.js)
+// und liefert css/bootstrap.css.
+//
+// Wir importieren Bootstrap mit unseren SCSS-Variablen-Overrides aus
+// abstracts/_variables.scss, sodass Bootstrap-Komponenten unsere Marken-Farben
+// nutzen.
+
+// Erst die eigenen Variablen-Defaults (mit !default-Flag, damit Bootstrap sie
+// als Default akzeptiert).
+@use '../abstracts/variables' as *;
+
+// Dann Bootstrap selbst.
+@import 'bootstrap/scss/bootstrap';

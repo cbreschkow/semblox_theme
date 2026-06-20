@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override for primary and secondary local tasks.
+ *
+ * Available variables:
+ * - primary: The primary tasks.
+ * - secondary: The secondary tasks.
+ *
+ * @see template_preprocess_menu_local_tasks()
+ */
+#}
+
+{% if primary %}
+  <nav class="tabs" role="navigation" aria-label="{{ 'Primary tabs'|t }}">
+    <ul class="nav nav-tabs">
+      {{ primary }}
+    </ul>
+  </nav>
+{% endif %}
+
+{% if secondary %}
+  <nav class="tabs tabs--secondary" role="navigation" aria-label="{{ 'Secondary tabs'|t }}">
+    <ul class="nav nav-pills">
+      {{ secondary }}
+    </ul>
+  </nav>
+{% endif %}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="semblox">
+  <title>semblox</title>
+  <!-- Slate-Modul hinten -->
+  <rect x="10" y="3" width="16" height="16" rx="3" fill="#475569"/>
+  <!-- Rose-Modul vorne -->
+  <rect x="6" y="9" width="16" height="16" rx="3" fill="#BE123C"/>
+</svg>

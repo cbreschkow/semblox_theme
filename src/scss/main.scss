@@ -1,0 +1,38 @@
+// =============================================================================
+// Semblox Theme — Main Stylesheet
+// =============================================================================
+//
+// 7-1 Architektur. Reihenfolge ist wichtig:
+//
+// 1. abstracts/  — Variablen, Mixins, Funktionen (Build-Time)
+// 2. vendors/    — externe Libraries (NICHT hier importiert: Bootstrap kommt
+//                  in eigenem Build-Output, siehe vite.config.js)
+// 3. base/       — Reset, Typografie, globale HTML-Defaults
+// 4. layouts/    — Page-Wrapper, Grid-Strukturen, Header/Footer
+// 5. components/ — Wiederverwendbare UI-Bausteine
+// 6. pages/      — Page-spezifische Styles (z. B. node-detail-pages)
+// 7. themes/     — Theming-Schichten (Light/Dark, Marken-Akzente)
+//
+// =============================================================================
+
+// 1. Abstracts
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+// 3. Base
+@use 'base/reset';
+@use 'base/typography';
+
+// 4. Layouts
+@use 'layouts/page';
+@use 'layouts/header';
+@use 'layouts/footer';
+
+// 5. Components
+@use 'components/buttons';
+
+// 6. Pages
+@use 'pages/course-pages';
+
+// 7. Themes
+// (leer für jetzt — Light/Dark / Marken-Themes hier)

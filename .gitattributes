@@ -1,0 +1,11 @@
+# Schlankes Source-Archiv für Themes mit Build (z.B. semblox_theme).
+# WICHTIG behalten: src/, package.json, vite.config.js (Build braucht sie) und
+# css/ (committetes Marken-CSS, KEIN Build-Output!).
+
+/.github            export-ignore
+.gitignore          export-ignore
+.gitattributes      export-ignore
+node_modules        export-ignore
+dist                export-ignore
+.vite               export-ignore
+*.md                export-ignore
