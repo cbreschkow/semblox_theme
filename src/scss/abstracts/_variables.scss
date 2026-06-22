@@ -1,99 +1,25 @@
 // =============================================================================
-// CSS-Variablen — Single Source of Truth
+// Bootstrap-Build-Inputs (SCSS · Build-Time)
 // =============================================================================
 //
-// Diese Datei definiert die *primären* Theming-Tokens als CSS-Custom-Properties.
-// SCSS-Variablen weiter unten lesen DAVON, sodass:
-//
-// - Build-Time: SCSS-Werte werden für Bootstrap und Komponenten ausgewertet
-// - Runtime: Child-Themes oder Drupal-Module können CSS-Vars überschreiben,
-//   ohne SCSS rebuilden zu müssen
-//
-// Beispiel Child-Theme-Override:
-//
-//   :root {
-//     --semblox-primary: #ff6600;  // <- Marke X
-//   }
+// Einziges Laufzeit-Token-System: --sx-* aus css/semblox-tokens.css.
+// Diese $-Variablen spiegeln NUR die fuer die Bootstrap-Kompilierung noetigen
+// Werte (SCSS kann zur Build-Zeit keine CSS-Custom-Properties auswerten).
+// Bei Aenderungen an den --sx-Tokens hier synchron halten.
 //
 // =============================================================================
 
-:root {
-  // -----------------------------
-  // Brand Colors
-  // -----------------------------
-  --semblox-primary: #BE123C;
-  --semblox-primary-rgb: 190, 18, 60;
-  --semblox-secondary: #6c757d;
-  --semblox-secondary-rgb: 108, 117, 125;
+$primary:   #BE123C !default;  // = --sx-color-rose   (Rose-700)
+$secondary: #64748B !default;  // = --sx-color-text-muted (Slate-500)
+$success:   #059669 !default;  // = --sx-color-success (Emerald-600)
+$warning:   #D97706 !default;  // = --sx-color-warning (Amber-600)
+$danger:    #BE123C !default;  // = --sx-color-danger  (Rose-700)
+$info:      #2563EB !default;  // = --sx-color-info    (Blue-600)
 
-  // -----------------------------
-  // Semantic Colors
-  // -----------------------------
-  --semblox-success: #228B22;
-  --semblox-success-rgb: 34, 139, 34;
-  --semblox-warning: #d97706;
-  --semblox-warning-rgb: 217, 119, 6;
-  --semblox-danger: #dc2626;
-  --semblox-danger-rgb: 220, 38, 38;
-  --semblox-info: #0dcaf0;
-  --semblox-info-rgb: 13, 202, 240;
-
-  // -----------------------------
-  // Neutrals
-  // -----------------------------
-  --semblox-body-bg: #ffffff;
-  --semblox-body-color: #1a1a1a;
-  --semblox-muted: #6c757d;
-  --semblox-border: #e0e0e0;
-
-  // -----------------------------
-  // Spacing & Sizing
-  // -----------------------------
-  --semblox-spacer: 1rem;
-  --semblox-border-radius: 0.5rem;
-  --semblox-border-radius-sm: 0.25rem;
-  --semblox-border-radius-lg: 0.75rem;
-
-  // -----------------------------
-  // Typography
-  // -----------------------------
-  --semblox-font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --semblox-font-family-serif: Georgia, serif;
-  --semblox-font-family-monospace: SFMono-Regular, Menlo, Consolas, monospace;
-  --semblox-font-size-base: 1rem;
-  --semblox-line-height-base: 1.5;
-
-  // -----------------------------
-  // Container Widths
-  // -----------------------------
-  --semblox-container-max-width-xl: 1200px;
-}
-
-// =============================================================================
-// SCSS-Variablen, abgeleitet aus den CSS-Vars
-// =============================================================================
-//
-// Diese Variablen werden zur Build-Time ausgewertet. Bootstrap nutzt sie via
-// SCSS-Override (siehe vendors/bootstrap.scss).
-//
-// Wichtig: Wenn du `var(--semblox-primary)` direkt in SCSS-Variablen einsetzt,
-// kann Bootstrap diese in `darken()`-Funktionen NICHT auswerten (CSS-Vars sind
-// Runtime, darken() ist Build-Time). Daher hier mit konkreten Werten.
-//
-// Falls Child-Themes die SCSS-Variablen override wollen, müssen sie eigenes
-// SCSS bauen. Marken-Farben über CSS-Vars sind die einfachere Methode.
-
-$primary: #BE123C !default;
-$secondary: #6c757d !default;
-$success: #228B22 !default;
-$warning: #d97706 !default;
-$danger: #dc2626 !default;
-$info: #0dcaf0 !default;
-
-$body-bg: #ffffff !default;
-$body-color: #1a1a1a !default;
+$body-bg:    #FFFFFF !default; // = --sx-color-bg
+$body-color: #1E293B !default; // = --sx-color-text (Slate-800)
 
 $spacer: 1rem !default;
-$border-radius: 0.5rem !default;
+$border-radius: 0.5rem !default; // = --sx-radius-md
 
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !default;
+$font-family-sans-serif: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !default;

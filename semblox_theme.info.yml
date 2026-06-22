@@ -11,7 +11,7 @@ base theme: false
 libraries:
   - semblox_theme/global
   - semblox_theme/bootstrap
-  - semblox_theme/brand_bridge
+  - semblox_theme/brand
 
 # Library-Overrides: Drupal-Core-Libraries nicht laden (wir nutzen Bootstrap).
 libraries-override:

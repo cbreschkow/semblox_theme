@@ -2,8 +2,7 @@
    semblox · Theme Brand
    ==========================================================================
    Bindet Plus Jakarta Sans über die im Theme bereits liegenden Font-Files
-   ein und überschreibt das alte eLeDia-Branding mit den neuen
-   Slate + Rose Tokens.
+   ein und setzt die Slate + Rose Tokens als Markenbasis.
    ========================================================================== */
 
 @font-face {
@@ -40,28 +39,6 @@
   font-display: swap;
   src: url("../fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"),
        url("../fonts/plus-jakarta-sans-latin-700-normal.woff") format("woff");
-}
-
-/* Bridge: alte --semblox-* Variablen → neue --sx-* Tokens
-   So funktionieren bestehende Komponenten weiter, während neue
-   die neuen Tokens nutzen können. !important wichtig, falls
-   dist/css/global.css trotz Library-Reihenfolge gewinnt. */
-:root {
-  --semblox-primary: var(--sx-color-rose) !important;
-  --semblox-primary-rgb: 190, 18, 60 !important;
-  --semblox-success: var(--sx-color-success) !important;
-  --semblox-success-rgb: 5, 150, 105 !important;
-  --semblox-warning: var(--sx-color-warning) !important;
-  --semblox-warning-rgb: 217, 119, 6 !important;
-  --semblox-danger: var(--sx-color-danger) !important;
-  --semblox-danger-rgb: 190, 18, 60 !important;
-  --semblox-info: var(--sx-color-info) !important;
-  --semblox-info-rgb: 37, 99, 235 !important;
-  --semblox-body-bg: var(--sx-color-bg) !important;
-  --semblox-body-color: var(--sx-color-text) !important;
-  --semblox-muted: var(--sx-color-text-muted) !important;
-  --semblox-border: var(--sx-color-border) !important;
-  --semblox-font-family-sans: var(--sx-font-family) !important;
 }
 
 /* Body-Font auf Plus Jakarta Sans setzen */

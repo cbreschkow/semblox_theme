@@ -66,13 +66,14 @@ src/scss/
 
 #### Theming-Strategie
 
-CSS-Variablen sind die primäre Theming-Schicht. Definiert in
-`src/scss/abstracts/_variables.scss` als `:root`-Block:
+Die Design-Tokens (`--sx-*`) in `css/semblox-tokens.css` sind die **einzige**
+Laufzeit-Theming-Quelle. Die SCSS-`$`-Variablen in `_variables.scss` spiegeln nur
+die für den Bootstrap-Build nötigen Werte:
 
 ```scss
 :root {
-  --semblox-primary: #2E75B6;
-  --semblox-secondary: #6c757d;
+  --sx-color-rose: #BE123C;
+  --sx-color-slate: #475569;
   // ...
 }
 ```
@@ -80,7 +81,7 @@ CSS-Variablen sind die primäre Theming-Schicht. Definiert in
 SCSS-Variablen (für Bootstrap-Build) leiten ab:
 
 ```scss
-$primary: #2E75B6 !default;
+$primary: #BE123C !default;  // spiegelt --sx-color-rose
 ```
 
 **Runtime-Theming** (z. B. Marken-Wechsel, Admin-Settings) → CSS-Variablen
@@ -126,7 +127,7 @@ Dann eigenes SCSS in `src/scss/_brand.scss`:
 
 ```scss
 :root {
-  --semblox-primary: #ff6600;  // Marke X
+  --sx-color-rose: #ff6600;  /* Marke X */
 }
 ```
 
@@ -171,4 +172,4 @@ build_theme:
 
 ## Lizenz
 
-eLeDia GmbH, intern.
+Proprietaer. © Semblox / Claudia Breschkow. Alle Rechte vorbehalten.

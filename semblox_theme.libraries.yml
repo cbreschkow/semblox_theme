@@ -28,14 +28,12 @@ tokens:
   # Single source of truth für alle Design-Tokens (--sx-*).
   # Wird VOR global.css geladen, damit Komponenten die Tokens nutzen können.
 
-brand_bridge:
+brand:
   version: 1.0
   css:
     theme:
       css/semblox-brand.css: { weight: 100 }
   dependencies:
     - semblox_theme/global
-  # Bridge zwischen den NEUEN --sx-* Tokens und den ALTEN --semblox-*
-  # Variablen aus dist/css/global.css. Muss NACH global.css geladen werden,
-  # daher als separate Library mit `global` als Dependency. Plus die
-  # @font-face-Definitionen für Plus Jakarta Sans.
+  # Marken-Layer: @font-face (Plus Jakarta Sans) + Bootstrap-Variablen
+  # (--bs-*) auf die --sx-Tokens mappen. Laedt nach global.css.

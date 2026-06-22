@@ -53,58 +53,5 @@ function semblox_theme_preprocess_page(array &$variables) {
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function semblox_theme_preprocess_node(array &$variables) {
-  /** @var \Drupal\node\NodeInterface $node */
-  $node = $variables['node'];
   $variables['view_mode_class'] = str_replace('_', '-', $variables['view_mode']);
-
-  // Bundle-spezifische Vererbungs-Logik für course_instance.
-  // Wenn ein Feld leer ist, nutze den Wert vom referenzierten reference_course.
-  if ($node->bundle() === 'course_instance' && $variables['view_mode'] === 'full') {
-    _semblox_theme_inherit_from_reference_course($variables, $node);
-  }
-}
-
-/**
- * Reichert die Twig-Variablen einer course_instance mit Werten aus dem
- * referenzierten reference_course an, wenn die Instanz selbst leer ist.
- */
-function _semblox_theme_inherit_from_reference_course(array &$variables, $node) {
-  $refCourse = NULL;
-  if ($node->hasField('field_reference_course') && !$node->get('field_reference_course')->isEmpty()) {
-    $refCourse = $node->get('field_reference_course')->entity;
-  }
-
-  // Helper-Closure: Liefert den ersten nicht-leeren Wert aus einer Liste von
-  // Feld-Pfaden. Pfad-Format: ['entity', 'field_name'] oder ['field_name'].
-  $getInheritedField = function ($fieldName) use ($node, $refCourse) {
-    // 1. Versuch: Wert aus der Instanz selbst
-    if ($node->hasField($fieldName) && !$node->get($fieldName)->isEmpty()) {
-      return $node->get($fieldName);
-    }
-    // 2. Versuch: Wert aus dem Referenzkurs
-    if ($refCourse && $refCourse->hasField($fieldName) && !$refCourse->get($fieldName)->isEmpty()) {
-      return $refCourse->get($fieldName);
-    }
-    return NULL;
-  };
-
-  // Image: Instanz oder Referenzkurs
-  $image = $getInheritedField('field_course_image');
-  $variables['inherited_image'] = $image ? $image->view('default') : NULL;
-
-  // Skills: Liste, Instanz oder Referenzkurs
-  $skills = $getInheritedField('field_required_skills');
-  $variables['inherited_skills'] = $skills ? $skills->view(['label' => 'hidden']) : NULL;
-
-  // Zielgruppe: Instanz oder Referenzkurs
-  $targetGroup = $getInheritedField('field_target_group');
-  $variables['inherited_target_group'] = $targetGroup ? $targetGroup->view(['label' => 'hidden']) : NULL;
-
-  // Voraussetzungen: Instanz oder Referenzkurs
-  $prerequisites = $getInheritedField('field_prerequisites');
-  $variables['inherited_prerequisites'] = $prerequisites ? $prerequisites->view(['label' => 'hidden']) : NULL;
-
-  // Preis: Instanz überschreibt Referenzkurs (gleiche Logik wie API-Controller).
-  $price = $getInheritedField('field_price');
-  $variables['inherited_price'] = $price ? $price->view(['label' => 'hidden']) : NULL;
 }

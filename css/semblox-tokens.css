@@ -22,6 +22,7 @@
   --sx-color-rose: #BE123C;             /* Rose-700 · Akzent (Mark vorne, "o", Buttons) */
   --sx-color-rose-hover: #9F1239;       /* Rose-800 · Hover-State */
   --sx-color-rose-tint: #FFF1F2;        /* Rose-50  · Subtle Background-Tint */
+  --sx-color-rose-rgb: 190, 18, 60;     /* Rose-700 als RGB-Tripel fuer rgba() */
 
   /* ----- Farben: Semantisch ----- */
   --sx-color-bg: #FFFFFF;
@@ -133,6 +134,7 @@
   --sx-color-rose: #F43F5E;             /* Rose-500 statt 700 */
   --sx-color-rose-hover: #FB7185;       /* Rose-400 */
   --sx-color-rose-tint: rgb(244 63 94 / 0.12);
+  --sx-color-rose-rgb: 244, 63, 94;
 
   /* Semantische Farben für dunklen Hintergrund */
   --sx-color-bg: #0F172A;               /* Slate-900 */

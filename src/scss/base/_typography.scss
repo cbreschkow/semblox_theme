@@ -2,11 +2,11 @@
 @use '../abstracts/variables' as *;
 
 body {
-  font-family: var(--semblox-font-family-sans);
-  font-size: var(--semblox-font-size-base);
-  line-height: var(--semblox-line-height-base);
-  color: var(--semblox-body-color);
-  background-color: var(--semblox-body-bg);
+  font-family: var(--sx-font-family);
+  font-size: var(--sx-font-size-base);
+  line-height: var(--sx-leading-normal);
+  color: var(--sx-color-text);
+  background-color: var(--sx-color-bg);
 }
 
 h1, h2, h3, h4, h5, h6 {
