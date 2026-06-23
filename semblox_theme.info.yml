@@ -4,6 +4,11 @@ description: 'Bootstrap-5-basiertes Standard-Theme für Semblox-Projekte. Dient 
 package: 'Semblox'
 core_version_requirement: ^10 || ^11
 
+# Design-Tokens kommen aus dem logikfreien Modul semblox_tokens
+# (Marketing-Seite: Theme + semblox_tokens, OHNE semblox_core).
+dependencies:
+  - semblox_tokens:semblox_tokens
+
 # Kein Base-Theme. Drupal 10/11 verlangt diesen Key explizit.
 # Siehe https://www.drupal.org/node/3066038
 base theme: false

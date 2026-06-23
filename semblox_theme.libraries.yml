@@ -8,7 +8,7 @@ global:
   dependencies:
     - core/drupal
     - core/once
-    - semblox_theme/tokens
+    - semblox_tokens/tokens
 
 bootstrap:
   version: 5.3.x
@@ -19,14 +19,6 @@ bootstrap:
     dist/js/bootstrap.bundle.js: { minified: true }
   dependencies:
     - core/drupal
-
-tokens:
-  version: 1.0
-  css:
-    base:
-      css/semblox-tokens.css: { weight: -100 }
-  # Single source of truth für alle Design-Tokens (--sx-*).
-  # Wird VOR global.css geladen, damit Komponenten die Tokens nutzen können.
 
 brand:
   version: 1.0
